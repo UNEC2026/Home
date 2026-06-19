@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>UNEC 2026 - Official Landing Page</title>
+    
+    <title>UNEC 2026</title>
+    
+    <link rel="icon" type="image/x-icon" href="https://media.licdn.com/dms/image/v2/D4D0BAQHaS1xvWmETGQ/company-logo_200_200/company-logo_200_200/0/1720523794255?e=1783555200&v=beta&t=jDoLcQuUK8Aec-tAUSga0KmGKLd0dm6NM-HUtVsZDOM">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- PREMIUM CARRD DESIGN SYSTEM --- */
+        /* --- PREMIUM SYSTEM & SMOOTH SCROLL --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,22 +23,90 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
             color: #ffffff;
             overflow-x: hidden;
-            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000') no-repeat center center fixed;
+            background: url('https://cdn.discordapp.com/attachments/1322895866154979388/1517510499166851122/d6b51132-336d-48d4-9db7-aae107231040.png?ex=6a368b48&is=6a3539c8&hm=bfa25b534f1795a3487fa7db7c9fe8471ecc65e2f689de052862e7f8b2c94d0e') no-repeat center center fixed;
             background-size: cover;
+            padding-top: 95px; 
         }
 
+        /* --- OVERLAY BACKGROUND TRANSPARAN --- */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(11, 17, 32, 0.82), rgba(67, 21, 102, 0.65));
+            background: linear-gradient(135deg, rgba(11, 17, 32, 0.45), rgba(67, 21, 102, 0.3));
             z-index: 1;
+        }
+
+        /* --- FIXED NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(11, 17, 32, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 50px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: color 0.25s ease;
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.25s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
         }
 
         /* CONTAINER FLUID WIDE */
@@ -40,56 +115,25 @@
             z-index: 2;
             width: 90%;
             max-width: 1200px;
-            padding: 60px 0;
+            padding: 40px 0 60px 0;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 32px;
+            margin: 0 auto;
         }
 
-        /* Profile Header */
-        .profile-header {
-            text-align: center;
-            margin-bottom: 5px;
-        }
-
-        .profile-header img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            margin-bottom: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .profile-header h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-        }
-
-        .profile-header .subtitle {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        /* SUSUNAN SOSMED: WA 1 -> IG 1 -> WA 2 -> IG 2 -> LINKEDIN -> EMAIL */
+        /* SOSMED BAR */
         .social-header-bar {
             display: flex;
             justify-content: center;
             gap: 22px;
-            margin-top: 24px;
-            margin-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 5px;
             flex-wrap: wrap;
         }
 
         .social-icon-item {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1.6rem;
             text-decoration: none;
             transition: transform 0.25s ease, color 0.25s ease;
@@ -100,19 +144,66 @@
             color: #ffffff;
         }
 
-        /* INTERFACE PANEL DENGAN EFEK EMBOSS BORDER SESUAI GAMBAR CONTOH */
+        /* STYLE EMBOSS CARD UTAMA GLOBAL */
         .carrd-card {
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(15, 23, 42, 0.65); 
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            /* Double border style effect menggunakan kombinasi solid & box-shadow */
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-top: 1px solid rgba(255, 255, 255, 0.25);
             border-left: 1px solid rgba(255, 255, 255, 0.23);
             border-radius: 20px;
             padding: 35px;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 12px 40px rgba(0, 0, 0, 0.35);
             width: 100%;
+            scroll-margin-top: 130px; 
+        }
+
+        /* --- KOTAK ABOUT DENGAN BACKGROUND GAMBAR CUSTOM (TOP) --- */
+        .carrd-card.about-bg-custom {
+            position: relative;
+            background: url('https://upnjatim.ac.id/wp-content/uploads/2025/10/WEB3-scaled.jpg') no-repeat;
+            background-size: cover;
+            background-position: top center; 
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .carrd-card.about-bg-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75));
+            z-index: 1;
+        }
+
+        .about-bg-custom > *, .competitions-bg-custom > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- KOTAK COMPETITION DENGAN BACKGROUND GAMBAR CUSTOM (BOTTOM) --- */
+        .carrd-card.competitions-bg-custom {
+            position: relative;
+            background: url('https://upnjatim.ac.id/wp-content/uploads/2025/10/WEB2-1024x683.jpg') no-repeat;
+            background-size: cover;
+            background-position: bottom center; 
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .carrd-card.competitions-bg-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75));
+            z-index: 1;
         }
 
         .carrd-card h2 {
@@ -130,126 +221,131 @@
         .carrd-card p.desc-text {
             font-size: 1rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.95);
             text-align: justify;
             text-justify: inter-word;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
         }
 
-        /* --- LINKS GRID UTAMA (PERBAIKAN FITUR PUSAT/CENTERING MURNI) --- */
+        /* --- GRID TOMBOL URL LINK UTAMA --- */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 18px;
             width: 100%;
+            scroll-margin-top: 130px;
         }
 
         .grid-link-box {
             position: relative;
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            /* Penerapan Border Tiga Dimensi Emboss */
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-top: 1px solid rgba(255, 255, 255, 0.24);
-            border-left: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.25);
             color: #ffffff;
             text-decoration: none;
-            border-radius: 16px;
-            padding: 28px 20px;
+            border-radius: 12px;
+            padding: 16px 20px; 
+            min-height: 65px;
             
-            /* Solusi Kunci Tengah: Menggunakan flex column yang di-center total */
             display: flex;
-            flex-direction: column;
+            flex-direction: row; 
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            justify-content: center; 
             gap: 12px;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s, border-color 0.25s;
+            
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s, border-color 0.22s, box-shadow 0.22s;
         }
 
         .box-icon {
-            font-size: 1.7rem;
-            color: rgba(255, 255, 255, 0.9);
-            transition: transform 0.25s ease;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
             display: inline-flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .grid-link-box h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 0.2px;
-            width: 100%;
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #ffffff;
+            text-align: left;
         }
 
-        /* INDIKATOR PANAH MODERN KANAN ATAS (TANPA LINGKARAN - HOVER EFFECT SLIDE) */
         .action-arrow {
             position: absolute;
-            top: 16px;
-            right: 18px;
-            font-size: 0.95rem;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.35);
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s;
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.22s;
         }
 
         .grid-link-box:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            background: rgba(30, 41, 59, 0.95);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 12px 28px rgba(0, 0, 0, 0.4);
         }
 
         .grid-link-box:hover .action-arrow {
-            transform: translate(3px, -3px);
+            transform: translate(2px, -2px);
             color: #ffffff;
         }
 
-        /* --- COMPETITION GRID SYSTEM --- */
+        /* --- KOTAK KOMPETISI DYNAMIC OVERLAY GRID --- */
         .competitions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             width: 100%;
         }
 
         .lomba-box-fixed {
-            background: rgba(15, 23, 42, 0.4);
-            /* Penerapan Border Emboss pada Kotak Kompetisi */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 1px solid rgba(255, 255, 255, 0.18);
-            border-left: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(15, 23, 42, 0.75); 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 18px;
-            padding: 30px 24px;
-            height: 380px; /* Dikunci kokoh untuk tampilan desktop PC */
-            display: flex;
-            flex-direction: column;
+            padding: 35px 24px;
+            
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 12px 35px rgba(0, 0, 0, 0.3);
+            justify-items: center;
+            
+            min-height: 380px; 
+            height: auto; 
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 12px 35px rgba(0, 0, 0, 0.4);
             transition: border-color 0.4s, background-color 0.4s, box-shadow 0.4s;
             width: 100%;
         }
 
-        .lomba-header-wrapper {
+        .lomba-header-wrapper, .lomba-hidden-content {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .lomba-header-wrapper {
             gap: 12px;
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), top 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
             z-index: 2;
         }
 
         .lomba-box-fixed .lomba-icon-main {
-            font-size: 3.6rem;
+            font-size: 3.8rem;
             color: rgba(255, 255, 255, 0.85);
-            transition: transform 0.4s ease, color 0.4s ease;
         }
 
         .lomba-box-fixed h3 {
@@ -260,29 +356,22 @@
         }
 
         .lomba-hidden-content {
-            position: absolute;
-            bottom: 30px;
-            left: 24px;
-            right: 24px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
+            transform: scale(0.95);
             transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
             z-index: 3;
+            padding: 10px 0;
         }
 
         .lomba-box-fixed p {
             font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.95);
             line-height: 1.6;
             margin-bottom: 20px;
             text-align: justify;
             text-justify: inter-word;
-            word-spacing: -0.8px;
+            word-spacing: -0.5px;
         }
 
         .btn-daftar-lomba {
@@ -306,40 +395,68 @@
             transform: scale(1.02);
         }
 
-        /* --- HOVER TIMBAL BALIK PC DESKTOP --- */
+        /* --- MEKANISME HOVER DESKTOP --- */
         @media (min-width: 769px) {
             .lomba-box-fixed:hover {
-                border-color: rgba(255, 255, 255, 0.3);
-                background-color: rgba(11, 17, 32, 0.75);
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                border-color: rgba(255, 255, 255, 0.4);
+                background-color: rgba(11, 17, 32, 0.9);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             }
 
             .lomba-box-fixed:hover .lomba-header-wrapper {
-                top: 40px;
-                transform: translateY(0);
-            }
-
-            .lomba-box-fixed:hover .lomba-icon-main {
-                transform: scale(0.65);
+                opacity: 0;
+                transform: scale(0.8);
+                pointer-events: none;
             }
 
             .lomba-box-fixed:hover .lomba-hidden-content {
                 opacity: 1;
                 visibility: visible;
-                transform: translateY(0);
-                transition: opacity 0.4s ease 0.12s, transform 0.4s ease 0.12s, visibility 0.4s;
+                transform: scale(1);
+            }
+            
+            @media (max-width: 1024px) {
+                .links-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
         }
 
-        /* --- LAYOUT AMAN RESPONSIVITAS SMARTPHONE / IPHONE --- */
+        /* --- PERBAIKAN TOTAL LAYOUT MOBILE --- */
         @media (max-width: 768px) {
+            body {
+                padding-top: 115px; 
+            }
+
+            .navbar {
+                height: auto;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 0;
+                gap: 8px;
+                background: rgba(11, 17, 32, 0.5); 
+            }
+
+            .nav-logo img {
+                height: 38px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                gap: 16px;
+                padding: 2px 0;
+            }
+
+            .nav-menu a {
+                font-size: 0.82rem; 
+            }
+
             .container {
                 width: 94%;
                 gap: 22px;
             }
-
-            .profile-header h1 { font-size: 2rem; }
-            .profile-header .subtitle { font-size: 0.95rem; }
             
             .links-grid {
                 grid-template-columns: 1fr;
@@ -347,53 +464,48 @@
             }
 
             .grid-link-box {
-                flex-direction: row;
-                justify-content: flex-start;
-                text-align: left;
-                padding: 18px 24px;
-                gap: 18px;
+                justify-content: center; 
+                padding: 18px 20px;
+                min-height: auto;
             }
 
             .action-arrow {
                 top: 50%;
-                right: 22px;
+                right: 20px;
                 transform: translateY(-50%);
             }
 
             .grid-link-box:hover .action-arrow {
-                transform: translateY(-50%) translate(3px, -3px);
+                transform: translateY(-50%) translate(2px, -2px);
             }
 
-            /* Fleksibilitas Tinggi Kotak Otomatis Melar di HP */
             .lomba-box-fixed {
+                display: flex;
+                flex-direction: column;
                 height: auto !important; 
-                padding: 30px 20px;
+                padding: 32px 20px;
                 justify-content: flex-start;
-                gap: 16px;
+                gap: 20px;
             }
 
             .lomba-header-wrapper {
                 position: relative !important;
-                top: 0 !important;
                 transform: none !important;
+                opacity: 1 !important;
             }
 
             .lomba-box-fixed .lomba-icon-main {
-                font-size: 2.8rem !important;
-                transform: none !important;
+                font-size: 3rem !important;
             }
 
             .lomba-hidden-content {
                 position: relative !important;
-                bottom: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
                 opacity: 1 !important;
                 visibility: visible !important;
                 transform: none !important;
-                max-height: none !important;
+                padding: 0;
             }
-
+            
             .timeline-item {
                 flex-direction: column;
                 align-items: flex-start;
@@ -440,11 +552,24 @@
 
     <div class="bg-overlay"></div>
 
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="https://cdn.discordapp.com/attachments/1322895866154979388/1517472149864976415/15ec2783-5a01-48e6-908b-941a9887e881.png?ex=6a366791&is=6a351611&hm=0ff77163ef82cb2062bcb3c426397cb9eaceab0208e4b86355cd21ce707ba7d1" alt="Logo UNEC">
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#competitions">Competitions</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <header class="profile-header">
-            <img src="https://via.placeholder.com/150" alt="Logo Event" id="profile-img">
-            <h1>UNEC 2026</h1>
-            <p class="subtitle">UPN National English Competition</p>
+        
+        <section class="carrd-card about-bg-custom" id="about">
+            <h2><i class="fa-solid fa-circle-info"></i> About The Event</h2>
+            <p class="desc-text">UNEC (UPN National English Competition) is an annual national-scale English competition organized by the Language Center and the Global Language Club (GLC) student activity unit at UPN "Veteran" Jawa Timur. This competition is intended for high school and university students across Indonesia to showcase their talents.</p>
             
             <div class="social-header-bar">
                 <a href="https://wa.me/6281234567890" target="_blank" class="social-icon-item" title="WhatsApp 1"><i class="fa-brands fa-whatsapp"></i></a>
@@ -454,32 +579,37 @@
                 <a href="https://linkedin.com" target="_blank" class="social-icon-item" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="mailto:event@domain.com" target="_blank" class="social-icon-item" title="Email"><i class="fa-regular fa-envelope"></i></a>
             </div>
-        </header>
-
-        <section class="carrd-card">
-            <h2><i class="fa-solid fa-circle-info"></i> About The Event</h2>
-            <p class="desc-text">UNEC (UPN National English Competition) is an annual national-scale English competition organized by the Language Center and the Global Language Club (GLC) student activity unit at UPN "Veteran" Jawa Timur. This competition is intended for high school and university students across Indonesia to showcase their talents.</p>
         </section>
 
-        <section class="links-grid">
-            <a href="https://link-website-event.com" target="_blank" class="grid-link-box">
-                <i class="fa-solid fa-arrow-up-right action-arrow"></i>
-                <div class="box-icon"><i class="fa-solid fa-globe"></i></div>
-                <h3>Official Website</h3>
-            </a>
+        <section class="links-grid" id="links">
             <a href="https://link-guidebook.com/file.pdf" target="_blank" class="grid-link-box">
                 <i class="fa-solid fa-arrow-up-right action-arrow"></i>
                 <div class="box-icon"><i class="fa-solid fa-file-pdf"></i></div>
                 <h3>Guidebook</h3>
             </a>
-            <a href="https://link-pendaftaran.com" target="_blank" class="grid-link-box">
+            <a href="https://link-template-essay.com" target="_blank" class="grid-link-box">
                 <i class="fa-solid fa-arrow-up-right action-arrow"></i>
-                <div class="box-icon"><i class="fa-solid fa-user-plus"></i></div>
-                <h3>Registrations</h3>
+                <div class="box-icon"><i class="fa-solid fa-file-signature"></i></div>
+                <h3>Template & Lembar Orisinalitas Essay</h3>
+            </a>
+            <a href="https://link-kumpul-essay.com" target="_blank" class="grid-link-box">
+                <i class="fa-solid fa-arrow-up-right action-arrow"></i>
+                <div class="box-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <h3>Pengumpulan Naskah Essay</h3>
+            </a>
+            <a href="https://link-kumpul-video.com" target="_blank" class="grid-link-box">
+                <i class="fa-solid fa-arrow-up-right action-arrow"></i>
+                <div class="box-icon"><i class="fa-solid fa-video"></i></div>
+                <h3>Pengumpulan Video Storytelling</h3>
+            </a>
+            <a href="https://link-template-story.com" target="_blank" class="grid-link-box">
+                <i class="fa-solid fa-arrow-up-right action-arrow"></i>
+                <div class="box-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <h3>Template Naskah Storytelling</h3>
             </a>
         </section>
 
-        <section class="carrd-card">
+        <section class="carrd-card competitions-bg-custom" id="competitions">
             <h2><i class="fa-solid fa-trophy"></i> Competition Categories</h2>
             <div class="competitions-grid">
                 
@@ -494,7 +624,7 @@
                             Register <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
-                </div>
+                </div>    
 
                 <div class="lomba-box-fixed">
                     <div class="lomba-header-wrapper">
@@ -525,7 +655,7 @@
             </div>
         </section>
 
-        <section class="carrd-card">
+        <section class="carrd-card" id="timeline">
             <h2><i class="fa-solid fa-calendar-days"></i> Event Timeline</h2>
             <div class="timeline">
                 <div class="timeline-item">
